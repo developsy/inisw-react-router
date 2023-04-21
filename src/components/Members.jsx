@@ -15,7 +15,7 @@ const Members = (props) => {
   });
   return (
     <div>
-      <h2 class="m-4">Members</h2>
+      <h2 className="m-4">Members</h2>
       <div className="container">
         <div className="row">{list}</div>
       </div>
