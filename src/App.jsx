@@ -5,7 +5,8 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Members from "./components/Members";
 import SongList from "./components/SongList";
-import SongDetail from "./components/SongDetail";
+//import SongDetail from "./components/SongDetail";
+import Player from "./components/Player";
 
 const App = () => {
   const [songs] = useState([
@@ -37,8 +38,9 @@ const App = () => {
           <Route path="/" element={<Home />}></Route>
           <Route path="/about" element={<About title={"여우와 늙다리들"} />}></Route>
           <Route path="/members" element={<Members members={members} />}></Route>
-          <Route path="/songs" element={<SongList songs={songs} />}></Route>
-          <Route path="/songs/:id" element={<SongDetail songs={songs} />}></Route>
+          <Route path="/songs" element={<SongList songs={songs} />}>
+            <Route path=":id" element={<Player songs={songs} />} />
+          </Route>
         </Routes>
       </div>
     </Router>
