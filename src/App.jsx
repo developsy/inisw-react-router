@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+//memory router는 히스토리를 메모리에만 저장하는 훅. 이는 껍데기는 리액트, 안은 다른 앱인 하이브리드 개발에서 사용.
+// Hash router: 사용하면 url에 /#이 추가됨.
+// #이란? 한 html 파일 안에서 여러 개의 위치를 잡는 기능을 함. 문서가 길면 a태그로 이름을 지정하여 이름만 입력하면 그 부분으로 이동할 수 있다.
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
@@ -7,6 +10,7 @@ import Members from "./components/Members";
 import SongList from "./components/SongList";
 //import SongDetail from "./components/SongDetail";
 import Player from "./components/Player";
+import NotFound from "./components/NotFound";
 
 const App = () => {
   const [songs] = useState([
@@ -50,6 +54,7 @@ const App = () => {
             ></Route>
             <Route path=":id" element={<Player songs={songs} />} />
           </Route>
+          <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </div>
     </Router>
