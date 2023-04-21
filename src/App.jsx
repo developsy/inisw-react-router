@@ -39,6 +39,15 @@ const App = () => {
           <Route path="/about" element={<About title={"여우와 늙다리들"} />}></Route>
           <Route path="/members" element={<Members members={members} />}></Route>
           <Route path="/songs" element={<SongList songs={songs} />}>
+            <Route
+              index
+              element={
+                <>
+                  <hr />
+                  <h3>재생 중인 곡 없음</h3>
+                </>
+              }
+            ></Route>
             <Route path=":id" element={<Player songs={songs} />} />
           </Route>
         </Routes>
